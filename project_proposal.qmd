@@ -1,0 +1,77 @@
+---
+title: "project_proposal"
+format: html
+editor: visual
+---
+
+## Introduction
+
+General Research Question:
+
+My project aims to investigate the influence of gender and parental separation on students' alcohol consumption and its subsequent impact on their academic performance. Specifically, I will explore:
+
+1.  Differences in alcohol consumption among male and female students based on their parents' cohabitation status.
+
+2.  The relationship between alcohol consumption and academic grades.
+
+Data Source:
+
+The dataset for this analysis is from Kaggle, titled "Student Alcohol Data". It can be accessed at [Kaggle: Student Alcohol Data](https://www.kaggle.com/datasets/mahmoudshogaa/student-alcholoh-data/).
+
+The data set is part of a larger study conducted by Paulo Cortez, which involved surveying students about various aspects of their school life, personal habits, and family background. The data collection method is survey-based, targeting students attending secondary education in Portugal.
+
+Variables:
+
+1.  **school:** Student's school (GP - Gabriel Pereira or MS - Mousinho da Silveira).
+
+2.  **sex:** Student's gender (F - Female, M - Male).
+
+3.  **age:** Age of the student (numeric: from 15 to 22).
+
+4.  **address:** Type of student's home address (U - Urban, R - Rural).
+
+5.  **famsize:** Family size (LE3 - Less or equal to 3, GT3 - Greater than 3).
+
+6.  **Pstatus:** Parents' cohabitation status (T - Living together, A - Apart).
+
+7.  **Medu/Fedu:** Mother's/Father's education level (numeric: 0 - None, 1 - Primary education (4th grade), 2 -- 5th to 9th grade, 3 -- Secondary education, 4 -- Higher education).
+
+8.  **Mjob/Fjob:** Mother's/Father's job (Teacher, Health, Services, At_home, Other).
+
+9.  **reason:** Reason for choosing the school (Home proximity, School reputation, Course preference, Other).
+
+10. **guardian:** Student's guardian (Mother, Father, Other).
+
+11. **traveltime/studytime:** Travel time to school/Weekly study time (numeric categories).
+
+12. **failures:** Number of past class failures (numeric).
+
+13. **schoolsup/famsup/paid:** School support/Family support/Paid classes (Yes, No).
+
+14. **activities/nursery/higher/internet/romantic:** Extracurricular activities, Nursery school attendance, Desire for higher education, Internet access, Romantic relationship (Yes, No).
+
+15. **famrel/freetime/goout/Dalc/Walc/health:** Quality of family relationships, Free time, Going out with friends, Workday/Weekend alcohol consumption, Health status (numeric scales).
+
+16. **absences:** Number of school absences (numeric).
+
+17. **G1/G2/G3:** First period/Second period/Final grade (numeric: from 0 to 20).
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+library(tidyverse)
+
+student_data <- read_csv("/Users/xutongzhang/Downloads/student-mat.csv")
+```
+
+You can add options to executable code like this
+
+```{r}
+glimpse(student_data)
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+## Running Code
