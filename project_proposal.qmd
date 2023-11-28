@@ -1,77 +1,133 @@
 ---
 title: "project_proposal"
 format: html
-editor: visual
+editor: visua
 ---
 
-## Introduction
+Introduction
 
 General Research Question:
 
 My project aims to investigate the influence of gender and parental separation on students' alcohol consumption and its subsequent impact on their academic performance. Specifically, I will explore:
 
-1.  Differences in alcohol consumption among male and female students based on their parents' cohabitation status.
+Differences in alcohol consumption among male and female students based on their parents' cohabitation status.
 
-2.  The relationship between alcohol consumption and academic grades.
+The relationship between alcohol consumption and academic grades.
 
-Data Source:
+Data Source: 
 
-The dataset for this analysis is from Kaggle, titled "Student Alcohol Data". It can be accessed at [Kaggle: Student Alcohol Data](https://www.kaggle.com/datasets/mahmoudshogaa/student-alcholoh-data/).
+The dataset for this analysis is from Kaggle, titled "Student Alcohol Data". It can be accessed at Kaggle: Student Alcohol Data.
 
 The data set is part of a larger study conducted by Paulo Cortez, which involved surveying students about various aspects of their school life, personal habits, and family background. The data collection method is survey-based, targeting students attending secondary education in Portugal.
 
 Variables:
 
-1.  **school:** Student's school (GP - Gabriel Pereira or MS - Mousinho da Silveira).
+school: Student's school (GP - Gabriel Pereira or MS - Mousinho da Silveira).
 
-2.  **sex:** Student's gender (F - Female, M - Male).
+sex: Student's gender (F - Female, M - Male).
 
-3.  **age:** Age of the student (numeric: from 15 to 22).
+age: Age of the student (numeric: from 15 to 22).
 
-4.  **address:** Type of student's home address (U - Urban, R - Rural).
+address: Type of student's home address (U - Urban, R - Rural).
 
-5.  **famsize:** Family size (LE3 - Less or equal to 3, GT3 - Greater than 3).
+famsize: Family size (LE3 - Less or equal to 3, GT3 - Greater than 3).
 
-6.  **Pstatus:** Parents' cohabitation status (T - Living together, A - Apart).
+Pstatus: Parents' cohabitation status (T - Living together, A - Apart).
 
-7.  **Medu/Fedu:** Mother's/Father's education level (numeric: 0 - None, 1 - Primary education (4th grade), 2 -- 5th to 9th grade, 3 -- Secondary education, 4 -- Higher education).
+Medu/Fedu: Mother's/Father's education level (numeric: 0 - None, 1 - Primary education (4th grade), 2 – 5th to 9th grade, 3 – Secondary education, 4 – Higher education).
 
-8.  **Mjob/Fjob:** Mother's/Father's job (Teacher, Health, Services, At_home, Other).
+Mjob/Fjob: Mother's/Father's job (Teacher, Health, Services, At_home, Other).
 
-9.  **reason:** Reason for choosing the school (Home proximity, School reputation, Course preference, Other).
+reason: Reason for choosing the school (Home proximity, School reputation, Course preference, Other).
 
-10. **guardian:** Student's guardian (Mother, Father, Other).
+guardian: Student's guardian (Mother, Father, Other).
 
-11. **traveltime/studytime:** Travel time to school/Weekly study time (numeric categories).
+traveltime/studytime: Travel time to school/Weekly study time (numeric categories).
 
-12. **failures:** Number of past class failures (numeric).
+failures: Number of past class failures (numeric).
 
-13. **schoolsup/famsup/paid:** School support/Family support/Paid classes (Yes, No).
+schoolsup/famsup/paid: School support/Family support/Paid classes (Yes, No).
 
-14. **activities/nursery/higher/internet/romantic:** Extracurricular activities, Nursery school attendance, Desire for higher education, Internet access, Romantic relationship (Yes, No).
+activities/nursery/higher/internet/romantic: Extracurricular activities, Nursery school attendance, Desire for higher education, Internet access, Romantic relationship (Yes, No).
 
-15. **famrel/freetime/goout/Dalc/Walc/health:** Quality of family relationships, Free time, Going out with friends, Workday/Weekend alcohol consumption, Health status (numeric scales).
+famrel/freetime/goout/Dalc/Walc/health: Quality of family relationships, Free time, Going out with friends, Workday/Weekend alcohol consumption, Health status (numeric scales).
 
-16. **absences:** Number of school absences (numeric).
+absences: Number of school absences (numeric).
 
-17. **G1/G2/G3:** First period/Second period/Final grade (numeric: from 0 to 20).
+G1/G2/G3: First period/Second period/Final grade (numeric: from 0 to 20).
 
-## Running Code
+Data
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+A README file has been added to the /data folder. This README includes:
 
-```{r}
+Dimensions of the Dataset: The total number of rows (observations) and columns (variables).
+
+Codebook: A brief description of each variable in the dataset, as outlined in Section 1.
+
+{r}
 library(tidyverse)
 
-student_data <- read_csv("/Users/xutongzhang/Downloads/student-mat.csv")
-```
+student_data <- read_csv("/Users/xutongzhang/Proposal_Dir/student-mat.csv")
 
-You can add options to executable code like this
+Dataset Overview 
 
-```{r}
+{r}
 glimpse(student_data)
-```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+The echo: false option disables the printing of code (only output is displayed).
 
-## Running Code
+Data Analysis Plan
+
+Outcome Variable (Y): The primary outcome variable will be the students' final grades (G3). This reflects their overall academic performance.
+
+Predictor Variables (X):
+
+Alcohol Consumption: Both workday (Dalc) and weekend (Walc) alcohol consumption levels.
+
+Parental Cohabitation Status: The status of parents living together (Pstatus = 'T') or apart (Pstatus = 'A').
+
+Gender: Student's gender (sex), categorized as male (M) and female (F).
+
+Comparison Groups
+
+The analysis will focus on two main comparison groups:
+
+By Gender: Comparing male and female students to observe differences in alcohol consumption patterns.
+
+By Parental Status: Examining differences in students' alcohol consumption and academic performance based on whether their parents live together or apart.
+
+Preliminary Exploratory Data Analysis
+
+Summary Statistics: Basic descriptive statistics (mean, median, mode, etc.) for the main variables (grades, alcohol consumption).
+
+Visualizations:
+
+Histograms to display the distribution of grades and alcohol consumption.
+
+Scatter plots to observe potential relationships between alcohol consumption and grades.
+
+This analysis will help identify trends, outliers, and patterns in the data, providing insights into the relationships between the variables.
+
+{r}Copy code
+
+# Sample code for preliminary exploratory analysis
+# Histogram of final grades
+ggplot(student_data, aes(x = G3)) + geom_histogram(binwidth = 1)
+
+# Scatter plot of workday alcohol consumption vs. final grades
+ggplot(student_data, aes(x = Dalc, y = G3)) + geom_point()
+
+
+Proposed Methods
+
+Regression Analysis: To examine the relationship between alcohol consumption (Dalc, Walc) and academic performance (G3), adjusting for gender and parental status.
+
+Group Comparisons: T-tests or ANOVA to compare grades and alcohol consumption across different groups (based on gender and parental status).
+
+Expected Results to Support Hypotheses
+
+From Regression Analysis: A negative correlation between high levels of alcohol consumption and academic grades.
+
+From Group Comparisons: Significant differences in alcohol consumption patterns and academic performance based on gender and parental cohabitation status.
+
+The results will be interpreted to understand the impact of gender and parental separation on students' alcohol habits and their academic outcomes.
